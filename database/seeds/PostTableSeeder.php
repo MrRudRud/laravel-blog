@@ -21,13 +21,13 @@ class PostTableSeeder extends Seeder
 
         $title = $faker->sentence;
         $slug = Str::slug($title);
-        
+
             post::create([
                 'author_id' => App\User::all()->random()->id,
                 'title' => $title,
                 'slug' => $slug,
-                'excerpt' => $faker->paragraph(3),
-                'body' => $faker->paragraph(50),
+                'excerpt' => $faker->paragraph(10),
+                'body' => $faker->paragraph(100),
                 'image' => 'http://placehold.it/787x392'
             ]);
         }
