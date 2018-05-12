@@ -9,16 +9,23 @@
            <div class="row">
               <div class="col-lg-12 col-md-12">
              <aside>
-                <img src="https://lh3.googleusercontent.com/-ndZJOGgvYQ4/WM1ZI8dH86I/AAAAAAAADeo/l67ZqZnRUO8QXIQi38bEXuxqHfVX0TV2gCJoC/w424-h318-n-rw/thumbnail8.jpg" class="img-responsive">
+              {{-- @if($post->image_url === '') --}}
+             <img src="{{ $post->image }}" class="img-responsive">
+             {{-- @endif --}}
                 <div class="content-title">
 				<div class="text-center">
-				<h3><a href="#">Niki Postingan Sing Kepisan Njeh, Perdana Ngoten</a></h3>
+        <h3><a href="#">{{ $post->title }}</a></h3>
+        <div class="text-justify">
+            <h4>{{$post->body}}</h4>
+        </div>
 				</div>
 				</div>
 				<div class="content-footer">
-				<img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-				<span style="font-size: 16px;color: #fff;">Sumit Kumar</span>
-				<span class="pull-right">
+        <img class="user-small-img" src="{{$post->image}}">
+				{{-- <span style="font-size: 16px;color: #fff;">Sumit Kumar</span> --}}
+				<span class="">
+        <a href="#"></i> {{ $post->author->name}}</a> 
+        <a href="#"></i> {{ $post->date }}</a>           
 				<a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
 				<a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
 				</span>

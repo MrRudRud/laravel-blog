@@ -13,10 +13,11 @@ class BlogController extends Controller
         // die("blog.index");
         $posts = Post::with('author')->latestFirst()->simplePaginate($this->limit);
         return view('blog.index', compact('posts'));
+    }
 
-        // $posts = Post::with('author')
-        //                 ->latest()
-        //                 ->simplePaginate($this->limit);
-        // return view('blog.index', compact('posts'));
+    public function show($id) {
+        $post = Post::findOrFail($id);
+        return view('blog.show', compact('post'));
+        // die('show');
     }
 }
