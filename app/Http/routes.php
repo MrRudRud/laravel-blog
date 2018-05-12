@@ -19,3 +19,8 @@ Route::get('/blog/{post}', [
     'uses' => 'BlogController@show',
     'as' => 'show'
 ]);
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+Route::get('admin/user', 'UserController@index');
