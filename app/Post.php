@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon;
 class Post extends Model
 {
     public function author(){
@@ -32,5 +32,10 @@ class Post extends Model
     public function scopeLatestFirst($query)
     {
         return $this->orderBy('created_at', 'desc');
+    }
+
+    public function scopePublished($query)
+    {
+        return $this->where('published_at', '<=', Carbon::now());
     }
 }

@@ -14,7 +14,7 @@
                 @endif
                     <div class="content-title">
                     <div class="text-center">
-                    <h3><a href="{{route('show', $post->id)}}">{{$post->title}}</a></h3>
+                    <h3><a href="{{route('show', $post->slug)}}">{{$post->title}}</a></h3>
                     </div>
                     <div class="text-justify">
                         <h4>{{$post->excerpt}}</h4>
