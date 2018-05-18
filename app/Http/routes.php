@@ -24,6 +24,6 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 Route::get('admin/user', 'UserController@index');
-Route::get('admin/settings', 'UserController@setting');
+Route::get('admin/settings', 'UserController@setting')->name('usersettings');
 Route::post('admin/newemail', 'UserController@newEmail')->name('newEmail');
 Route::post('admin/newpassword', 'UserController@newPassword')->name('newPassword');

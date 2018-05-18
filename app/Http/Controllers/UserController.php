@@ -34,10 +34,9 @@ class UserController extends Controller
             $objUser = User::find($user->id);
             $objUser->email = $newEmail;
             $objUser->save();
-            return back();
+            return redirect()->route('usersettings')->with('message', 'Change email success');
         } else {
-            // return back();
-            die('error');
+            return redirect()->route('usersettings')->with('error', 'Change email unsuccess');
         }
     }
 
@@ -53,9 +52,9 @@ class UserController extends Controller
             $objUser = User::find($user->id);
             $objUser->password = Hash::make($newPass);
             $objUser->save();
-            return back();
+            return redirect()->route('usersettings')->with('message', 'Change password success');
         } else {
-            die('error');
+            return redirect()->route('usersettings')->with('error', 'Change password unsuccess');
         }
     }
 }

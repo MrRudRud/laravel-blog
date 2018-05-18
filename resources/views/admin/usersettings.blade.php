@@ -1,6 +1,17 @@
 @extends('adminlte::page')
 
 @section('content')
+@if(session()->has('error'))
+    <div class="alert alert-danger">
+        <button type="button" name="button" class="close" data-dismiss="alert">x</button>
+        <strong>{{ session()->get('error')}}</strong>
+    </div>
+    @elseif(session()->has('message'))
+        <div class="alert alert-success alert-block">
+            <button type="button" name="button" class="close" data-dismiss="alert">x</button>
+        <strong>{{ session()->get('message')}}</strong>
+        </div>
+@endif
 <div class="box">
     <div class="portlet light">
         <div class="portlet-body">

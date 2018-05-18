@@ -8,7 +8,9 @@
 	<meta name="author" content="sumit kumar"> 
 	<title>blog</title> 
 	<link href="{{asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-	<link href="{{asset('assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{asset('assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Enriqueta:400,700' rel='stylesheet' type='text/css'>
+	<link href="{{asset('assets/css/font-style.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
 	{{-- <script src="https://use.fontawesome.com/07b0ce5d10.js"></script> --}}
         

@@ -148,6 +148,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+        GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -202,6 +203,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Carbon' => 'Carbon\Carbon',
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
 
     ],
 
