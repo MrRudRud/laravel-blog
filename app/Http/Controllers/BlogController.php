@@ -11,11 +11,13 @@ class BlogController extends Controller
     protected $limit = 5;
     public function index() {
         // die("blog.index");
+        // \DB::enableQueryLog();
         $posts = Post::with('author')
                             ->latestFirst()
-                            // ->published()
-                            ->Paginate($this->limit);
-        return view('blog.index', compact('posts'));
+                            ->published()
+                            ->simplePaginate($this->limit);
+         return view('blog.index', compact('posts'))->render();
+        //  dd(\DB::getQueryLog());
     }
 
     public function show(Post $post) {

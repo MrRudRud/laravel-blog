@@ -9,8 +9,8 @@
             @foreach($posts as $post)
             <div class="col-lg-12 col-md-12">
                 <aside>
-                @if($post->image_url === '')
-                    <img src="{{ $post->image}}" class="img-responsive">
+                @if($post->image_url !== NULL)
+                    <img src="{{ $post->image_url}}" class="img-responsive">
                 @endif
                     <div class="content-title">
                     <div class="text-left">

@@ -8,6 +8,9 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 
 class Post extends Model
 {
+
+    protected $dates = ['published_at'];
+
     public function author(){
         return $this->belongsTo(User::class);
     }
@@ -28,7 +31,7 @@ class Post extends Model
 
     public function getDateAttribute($value) 
     {
-        return $this->created_at->diffForHumans();
+        return is_null($this->published_at) ? '' : $this->published_at->diffForHumans();
     }
 
     public function getBodyHtmlAttribute($value)
@@ -43,11 +46,11 @@ class Post extends Model
 
     public function scopeLatestFirst($query)
     {
-        return $this->orderBy('created_at', 'desc');
+        return $query->orderBy('created_at', 'desc');
     }
 
     public function scopePublished($query)
     {
-        return $this->where('published_at', '<=', Carbon::now());
+        return $query->where('published_at', '<=', Carbon::now());
     }
 }
