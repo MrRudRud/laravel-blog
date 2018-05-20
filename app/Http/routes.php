@@ -15,9 +15,15 @@ Route::get('/', [
     'uses' => 'BlogController@index',
     'as' => 'blog'
 ]);
+
 Route::get('/blog/{post}', [
     'uses' => 'BlogController@show',
     'as' => 'show'
+]);
+
+Route::get('/blog/category/{category}', [
+    'uses' => 'BlogController@category',
+    'as' => 'category'
 ]);
 
 Route::auth();

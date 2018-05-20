@@ -11,11 +11,17 @@ class Post extends Model
 
     protected $dates = ['published_at'];
 
+    public function Category(){
+        return $this->BelongsTo(Category::class);
+    }
+
     public function author(){
         return $this->belongsTo(User::class);
     }
 
-    // eloquet mutator
+    // ==========================
+    // Eloquet Mutator
+    // ==========================
     public function getImageUrlAttribute($value) 
     {
         $imageUrl = "";
@@ -44,6 +50,9 @@ class Post extends Model
         return $this->excerpt ? Markdown::convertToHTML($this->excerpt) : NULL;
     }
 
+    // ==========================
+    // Eloquent Scope
+    // ==========================    
     public function scopeLatestFirst($query)
     {
         return $query->orderBy('created_at', 'desc');
@@ -53,4 +62,5 @@ class Post extends Model
     {
         return $query->where('published_at', '<=', Carbon::now());
     }
+
 }

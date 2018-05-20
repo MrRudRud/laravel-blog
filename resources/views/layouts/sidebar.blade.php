@@ -2,6 +2,19 @@
            
 <!--           // RECENT POST===========-->
          <div class="col-lg-4">           
+        <!--=====================
+               CATEGORIES
+          ======================-->
+             <div class="widget-sidebar">
+              <h2 class="title-widget-sidebar">// CATEGORIES</h2>
+               @foreach($categories as $category)
+                 <button class="categories-btn">
+                 <a href="{{ route('category', $category->slug)}}" class="categories-btn">{{$category->title}}</a>
+                   <i class="badge pull-right">{{$category->post->count()}}</i>
+                 </button>
+               @endforeach
+             </div>  
+
                <div class="widget-sidebar">
                  <h2 class="title-widget-sidebar">// RECENT POST</h2>
                    <div class="content-widget-sidebar">
@@ -105,16 +118,7 @@
                 </div>
              </div>
              
-        <!--=====================
-               CATEGORIES
-          ======================-->
-             <div class="widget-sidebar">
-              <h2 class="title-widget-sidebar">// CATEGORIES</h2>
-                 <button class="categories-btn">Audio</button>
-                 <button class="categories-btn">Blog</button>
-                 <button class="categories-btn">Gallery</button>
-                 <button class="categories-btn">Images</button>
-             </div>  
+
              
               <!--=====================
                     NEWSLATTER
