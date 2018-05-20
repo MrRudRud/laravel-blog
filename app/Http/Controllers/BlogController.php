@@ -11,19 +11,16 @@ use Carbon\Carbon;
 class BlogController extends Controller
 {
     protected $limit = 5;
+
     public function index() {
         // die("blog.index");
         // \DB::enableQueryLog();
-        $categories = Category::with([ 'post' => function($query) {
-            // $query->where("published_at", "<=", Carbon::now());
-            $query->published();
-        }])->orderBy('title','ASC')->get();
         
         $posts = Post::with('author')
                             ->latestFirst()
                             ->published()
                             ->simplePaginate($this->limit);
-         return view('blog.index', compact('posts','categories'));
+         return view('blog.index', compact('posts'));
         //  ->render();
         //  dd(\DB::getQueryLog());
     }
@@ -31,12 +28,6 @@ class BlogController extends Controller
     public function category(Category $category) {
 
         $categoryName = $category->title;
-
-        $categories = Category::with([ 'post' => function($query) {
-            // $query->where("published_at", "<=", Carbon::now());
-            $query->published();
-        }])->orderBy('title','ASC')->get();
-
         // $posts = Post::with('author')
         //                     ->latestFirst()
         //                     ->published()
@@ -49,16 +40,11 @@ class BlogController extends Controller
                         ->published()
                         ->simplePaginate($this->limit);
 
-         return view('blog.index', compact('posts','categories', 'categoryName'));
+         return view('blog.index', compact('posts', 'categoryName'));
     }
 
     public function show(Post $post) {
-
-        $categories = Category::with([ 'post' => function($query) {
-            $query->published();
-        }])->orderBy('title','ASC')->get();
-        
-        return view('blog.show', compact('post','categories'));
+        return view('blog.show', compact('post'));
         // die('show');
     }
 }
